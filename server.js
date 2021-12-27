@@ -5,7 +5,7 @@ const helmet = require("helmet");
 const routes = require('./app/routers/routes');
 const config = require('./app/configs/config');
 const db = require('./app/db/db');
-const { DEVICE_ROUTE, } = require('./app/routers/routerConstants');
+const { DEVICE_ROUTE, } = require('./app/routers/constants/routerConstants');
 
 config.serverConfig.installServerConfigs();
 
