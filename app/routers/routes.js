@@ -1,5 +1,5 @@
-const router = express.Router();
+const deviceRouter = require("./deviceRouter/deviceRoutes").deviceRouter;
 
-module.exports = {
-    router
-};
+module.exports={
+    deviceRouter
+}
