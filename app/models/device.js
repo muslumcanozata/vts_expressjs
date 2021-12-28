@@ -1,10 +1,50 @@
 class Device {
-    constructor({ id, device_type_id, device_name, is_online, is_active }) {
+    constructor({ id, deviceTypeId, deviceName, isOnline, isActive } = {}) {
         this.id = id;
-        this.device_type_id = device_type_id;
-        this.device_name = device_name;
-        this.is_online = is_online;
-        this.is_active = is_active;
+        this.deviceTypeId = deviceTypeId;
+        this.deviceName = deviceName;
+        this.isOnline = isOnline;
+        this.isActive = isActive;
+    }
+
+    getId() {
+        return this.id;
+    }
+
+    getDeviceTypeId() {
+        return this.deviceTypeId;
+    }
+
+    getDeviceName() {
+        return this.deviceName;
+    }
+
+    getIsOnline() {
+        return this.isOnline;
+    }
+
+    getIsActive() {
+        return this.isActive;
+    }
+
+    setId(id) {
+        this.id = id;
+    }
+
+    setDeviceTypeId(deviceTypeId) {
+        this.deviceTypeId = deviceTypeId;
+    }
+
+    setDeviceName(deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    setIsOnline(isOnline) {
+        this.isOnline = isOnline;
+    }
+
+    setIsActive(isActive) {
+        this.isActive = isActive;
     }
 }
 

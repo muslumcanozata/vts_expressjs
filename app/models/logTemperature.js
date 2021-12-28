@@ -1,10 +1,9 @@
-class LogLocation {
-    constructor({ id, vehicleId, deviceId, latitude, longitude, createdAt } = {}) {
+class LogTemperature {
+    constructor({ id, vehicleId, deviceId, readData, createdAt } = {}) {
         this.id = id;
         this.vehicleId = vehicleId;
         this.deviceId = deviceId;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.readData = readData;
         this.createdAt = createdAt;
     }
 
@@ -20,12 +19,8 @@ class LogLocation {
         return this.deviceId;
     }
 
-    getLatitude() {
-        return this.latitude;
-    }
-
-    getLongitude() {
-        return this.longitude;
+    getReadData() {
+        return this.readData;
     }
 
     getCreatedAt() {
@@ -44,12 +39,8 @@ class LogLocation {
         this.deviceId = deviceId;
     }
 
-    setLatitude(latitude) {
-        this.latitude = latitude;
-    }
-
-    setLongitude(longitude) {
-        this.longitude = longitude;
+    setReadData(readData) {
+        this.readData = readData;
     }
 
     setCreatedAt(createdAt) {
@@ -57,4 +48,4 @@ class LogLocation {
     }
 }
 
-module.exports = LogLocation;
+module.exports = LogTemperature;
