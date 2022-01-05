@@ -14,12 +14,5 @@ app.use(express.json());
 app.use(`${process.env.APP_PREFIX}${DEVICE_ROUTE}`, routes.deviceRouter);
 
 app.listen(process.env.APP_PORT, () => {
-    db.postgresConnection.connectPostgres(
-        config.postgresConfig.db_username,
-        config.postgresConfig.db_password,
-        config.postgresConfig.db_host,
-        config.postgresConfig.db_port,
-        config.postgresConfig.db_name
-    );
     console.log("Server Running " + process.env.APP_PORT);
-})
+});
