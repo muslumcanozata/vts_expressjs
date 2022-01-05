@@ -1,13 +1,13 @@
-import Device from "../models/device";
-import DevicesType from "../models/devicesType";
-import LogLocation from "../models/logLocation";
-import LogTemperature from "../models/logTemperature";
-import Vehicle from "../models/vehicle";
-import DeviceDto from "../dtos/deviceDto";
-import DevicesTypeDto from "../dtos/devicesTypeDto";
-import LogLocationDto from "../dtos/logLocationDto";
-import LogTemperatureDto from "../dtos/logTemperatureDto";
-import VehicleDto from "../dtos/vehicleDto";
+const { Device } = require("../models/device");
+const { DevicesType } = require("../models/devicesType");
+const { LogLocation } = require("../models/logLocation");
+const { LogTemperature } = require("../models/logTemperature");
+const { Vehicle } = require("../models/vehicle");
+const { DeviceDto } = require("../dtos/deviceDto");
+const { DevicesTypeDto } = require("../dtos/devicesTypeDto");
+const { LogLocationDto } = require("../dtos/logLocationDto");
+const { LogTemperatureDto } = require("../dtos/logTemperatureDto");
+const { VehicleDto } = require("../dtos/vehicleDto");
 
 class ModelMapper {
     constructor() {
