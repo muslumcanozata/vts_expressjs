@@ -1,8 +1,8 @@
 class DevicesType {
     constructor({ id, deviceName, deviceDescription, isActive } = {}) {
         this.id = id;
-        this.deviceName = deviceName;
-        this.deviceDescription = deviceDescription;
+        this.device_name = deviceName;
+        this.device_description = deviceDescription;
         this.isActive = isActive;
     }
 
@@ -11,15 +11,15 @@ class DevicesType {
     }
 
     getDeviceName() {
-        return this.deviceName;
+        return this.device_name;
     }
 
     getDeviceDescription() {
-        return this.deviceDescription;
+        return this.device_description;
     }
 
     getIsActive() {
-        return this.isActive;
+        return this.is_active;
     }
 
     setId(id) {
@@ -27,15 +27,15 @@ class DevicesType {
     }
 
     setDeviceName(deviceName) {
-        this.deviceName = deviceName;
+        this.device_name = deviceName;
     }
 
     setDeviceDescription(deviceDescription) {
-        this.deviceDescription = deviceDescription;
+        this.device_description = deviceDescription;
     }
 
     setIsActive(isActive) {
-        this.isActive = isActive;
+        this.is_active = isActive;
     }
 }
 

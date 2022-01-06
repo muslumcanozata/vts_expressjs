@@ -1,23 +1,11 @@
 const {postgresConnection} = require("../db/db");
-const {Device} = require("../models/device");
-
 
 const deviceDal = {
     getAll: async function () {
         const db = await postgresConnection.db;
-        let devices = [];
-        const rows = await db.any(
+        const devices = await db.any(
             'SELECT id, device_type_id, device_name, is_online, is_active FROM public.devices;'
         );
-        for(let i=0;i<rows.length;i++) {
-            devices.push(new Device(
-                rows[i].id,
-                rows[i].device_type_id,
-                rows[i].device_name,
-                rows[i].is_online,
-                rows[i].is_active
-            ));
-        }
         return devices;
     },
 
@@ -26,7 +14,7 @@ const deviceDal = {
         try {
             await db.query(
                 'INSERT INTO public.devices (device_type_id, device_name, is_online, is_active) ' +
-                `VALUES(${devices.deviceTypeId, devices.deviceName, devices.isOnline, devices.isActive});`
+                `VALUES(${devices.getDeviceTypeId()}, ${devices.getDeviceName()}, ${devices.getIsOnline()}, ${devices.getIsActive()});`
             );
             return 1;
         } catch (e) {

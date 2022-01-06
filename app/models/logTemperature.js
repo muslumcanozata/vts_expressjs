@@ -1,9 +1,9 @@
 class LogTemperature {
     constructor({ id, vehicleId, deviceId, readData, createdAt } = {}) {
         this.id = id;
-        this.vehicleId = vehicleId;
-        this.deviceId = deviceId;
-        this.readData = readData;
+        this.vehicle_id = vehicleId;
+        this.device_id = deviceId;
+        this.read_data = readData;
         this.createdAt = createdAt;
     }
 
@@ -12,19 +12,19 @@ class LogTemperature {
     }
 
     getVehicleId() {
-        return this.vehicleId;
+        return this.vehicle_id;
     }
 
     getDeviceId() {
-        return this.deviceId;
+        return this.device_id;
     }
 
     getReadData() {
-        return this.readData;
+        return this.read_data;
     }
 
     getCreatedAt() {
-        return this.createdAt;
+        return this.created_at;
     }
 
     setId(id) {
@@ -32,19 +32,19 @@ class LogTemperature {
     }
 
     setVehicleId(vehicleId) {
-        this.vehicleId = vehicleId;
+        this.vehicle_id = vehicleId;
     }
 
     setDeviceId(deviceId) {
-        this.deviceId = deviceId;
+        this.device_id = deviceId;
     }
 
     setReadData(readData) {
-        this.readData = readData;
+        this.read_data = readData;
     }
 
     setCreatedAt(createdAt) {
-        this.createdAt = createdAt;
+        this.created_at = createdAt;
     }
 }
 

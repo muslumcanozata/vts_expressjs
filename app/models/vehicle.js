@@ -1,8 +1,8 @@
 class Vehicle {
     constructor({ id, vehiclePlate, currentStatus, isActive } = {}) {
         this.id = id;
-        this.vehiclePlate = vehiclePlate;
-        this.currentStatus = currentStatus;
+        this.vehicle_plate = vehiclePlate;
+        this.current_status = currentStatus;
         this.isActive = isActive;
     }
 
@@ -11,15 +11,15 @@ class Vehicle {
     }
 
     getVehiclePlate() {
-        return this.vehiclePlate;
+        return this.vehicle_plate;
     }
 
     getCurrentStatus() {
-        return this.currentStatus;
+        return this.current_status;
     }
 
     getIsActive() {
-        return this.isActive;
+        return this.is_active;
     }
 
     setId(id) {
@@ -27,15 +27,15 @@ class Vehicle {
     }
 
     setVehiclePlate(vehiclePlate) {
-        this.vehiclePlate = vehiclePlate;
+        this.vehicle_plate = vehiclePlate;
     }
 
     setCurrentStatus(currentStatus) {
-        this.currentStatus = currentStatus;
+        this.current_status = currentStatus;
     }
 
     setIsActive(isActive) {
-        this.isActive = isActive;
+        this.is_active = isActive;
     }
 }
 

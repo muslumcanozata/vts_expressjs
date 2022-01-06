@@ -1,11 +1,11 @@
 class LogLocation {
     constructor({ id, vehicleId, deviceId, latitude, longitude, createdAt } = {}) {
         this.id = id;
-        this.vehicleId = vehicleId;
-        this.deviceId = deviceId;
+        this.vehicle_id = vehicleId;
+        this.device_id = deviceId;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.createdAt = createdAt;
+        this.created_at = createdAt;
     }
 
     getId() {
@@ -13,11 +13,11 @@ class LogLocation {
     }
 
     getVehicleId() {
-        return this.vehicleId;
+        return this.vehicle_id;
     }
 
     getDeviceId() {
-        return this.deviceId;
+        return this.device_id;
     }
 
     getLatitude() {
@@ -29,7 +29,7 @@ class LogLocation {
     }
 
     getCreatedAt() {
-        return this.createdAt;
+        return this.created_at;
     }
 
     setId(id) {
@@ -37,11 +37,11 @@ class LogLocation {
     }
 
     setVehicleId(vehicleId) {
-        this.vehicleId = vehicleId;
+        this.vehicle_id = vehicleId;
     }
 
     setDeviceId(deviceId) {
-        this.deviceId = deviceId;
+        this.device_id = deviceId;
     }
 
     setLatitude(latitude) {
@@ -53,7 +53,7 @@ class LogLocation {
     }
 
     setCreatedAt(createdAt) {
-        this.createdAt = createdAt;
+        this.created_at = createdAt;
     }
 }
 
