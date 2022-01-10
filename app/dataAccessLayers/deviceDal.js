@@ -1,63 +1,42 @@
-const {postgresConnection} = require("../db/db");
+const { postgresConnection } = require("../db/db");
+const { getDeviceListQuery } = require("./dalConstants")
+const Device = require("../models/device");
 
 const deviceDal = {
-    getAll: async function () {
-        const db = await postgresConnection.db;
-        const devices = await db.any(
-            'SELECT id, device_type_id, device_name, is_online, is_active FROM public.devices;'
-        );
-        return devices;
+    async getAll() {
+        return await postgresConnection.db.query(getDeviceListQuery);;
     },
 
-    insert: async function (devices) {
-        const db = await postgresConnection.db;
-        try {
-            await db.query(
-                'INSERT INTO public.devices (device_type_id, device_name, is_online, is_active) ' +
-                `VALUES(${devices.getDeviceTypeId()}, ${devices.getDeviceName()}, ${devices.getIsOnline()}, ${devices.getIsActive()});`
-            );
-            return 1;
-        } catch (e) {
-            throw new Error(e);
-        }
+    async insert(device) {
+        let query = `INSERT INTO public.devices("device_type_id", "device_name", "is_online", "is_active") VALUES(${device.deviceTypeId}, '${device.deviceName}', ${device.isOnline}, ${device.isActive});`
+        await postgresConnection.db.query(query);
+        return 1;
     },
 
-    update: async function (devices) {
-        const db = await postgresConnection.db;
-
+    async update(device) {
         let query = 'UPDATE public.devices SET';
 
-        if(devices.getDeviceTypeId()!== null) {
-            query = query + `device_type_id = ${devices.getDeviceTypeId()}`
-        } else if(devices.getDeviceName()!== null) {
-            query = query + `device_name = ${devices.getDeviceName()}`
-        } else if(devices.getIsOnline()!== null) {
-            query = query + `is_online = ${devices.getDeviceName()}`
-        } else if(devices.getIsActive()!== null) {
-            query = query + `is_active = ${devices.getIsActive()}`
+        if(device.deviceTypeId !== null) {
+            query = query.concat(" ", `device_type_id = ${device.deviceTypeId}`)
+        } else if(device.deviceName !== null) {
+            query = query.concat(" ", `device_name = '${device.deviceName}'`)
+        } else if(device.isOnline !== null) {
+            query = query.concat(" ", `is_online = ${device.isOnline}`)
+        } else if(device.isActive !== null) {
+            query = query.concat(" ", `is_active = ${device.isActive}`)
         }
 
-        query = query + `WHERE device_id = ${devices.getDeviceId()}`
+        query = query.concat(" ", `WHERE id = ${device.id}`)
 
-        try {
-            await db.query(query);
-            return 1;
-        } catch (e) {
-            throw new Error(e);
-        }
+        await postgresConnection.db.query(query) ;
+
+        return 1;
     },
 
-    delete: async function(id) {
-        const db = await postgresConnection.db;
-
-        let query = `DELETE FROM public.devices WHERE device_type_id = ${id}`;
-
-        try {
-            await db.query(query);
-            return 1;
-        } catch (e) {
-            throw new Error(e);
-        }
+    async delete(id) {
+        let query = `DELETE FROM public.devices WHERE id = ${id}`;
+        await postgresConnection.db.query(query);
+        return 1;
     }
 };
 
