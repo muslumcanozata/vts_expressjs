@@ -1,13 +1,13 @@
-const { Device } = require("../models/device");
-const { DevicesType } = require("../models/devicesType");
-const { LogLocation } = require("../models/logLocation");
-const { LogTemperature } = require("../models/logTemperature");
-const { Vehicle } = require("../models/vehicle");
-const { DeviceDto } = require("../dtos/deviceDto");
-const { DevicesTypeDto } = require("../dtos/devicesTypeDto");
-const { LogLocationDto } = require("../dtos/logLocationDto");
-const { LogTemperatureDto } = require("../dtos/logTemperatureDto");
-const { VehicleDto } = require("../dtos/vehicleDto");
+const Device = require("../models/device");
+const DevicesType = require("../models/devicesType");
+const LogLocation = require("../models/logLocation");
+const LogTemperature = require("../models/logTemperature");
+const Vehicle = require("../models/vehicle");
+const DeviceDto = require("../dtos/deviceDto");
+const DevicesTypeDto = require("../dtos/devicesTypeDto");
+const LogLocationDto = require("../dtos/logLocationDto");
+const LogTemperatureDto = require("../dtos/logTemperatureDto");
+const VehicleDto = require("../dtos/vehicleDto");
 
 class ModelMapper {
     constructor() {
@@ -16,11 +16,11 @@ class ModelMapper {
     static dtoToDevice(deviceDto) {
         let device = new Device();
 
-        device.setId(deviceDto.getId());
-        device.setDeviceTypeId(deviceDto.getDeviceTypeId());
-        device.setDeviceName(deviceDto.getDeviceName());
-        device.setIsOnline(deviceDto.getIsOnline());
-        device.setIsActive(deviceDto.getIsActive());
+        device.id = deviceDto.id;
+        device.deviceTypeId = deviceDto.deviceTypeId;
+        device.deviceName = deviceDto.deviceName;
+        device.isOnline = deviceDto.isOnline;
+        device.isActive = deviceDto.isActive;
 
         return device;
     }
@@ -28,11 +28,11 @@ class ModelMapper {
     static deviceToDto(device) {
         let deviceDto = new DeviceDto();
 
-        deviceDto.setId(device.getId());
-        deviceDto.setDeviceTypeId(device.getDeviceTypeId());
-        deviceDto.setDeviceName(device.getDeviceName());
-        deviceDto.setIsOnline(device.getIsOnline());
-        deviceDto.setIsActive(device.getIsActive());
+        deviceDto.setId(device.id);
+        deviceDto.setDeviceTypeId(device.deviceTypeId);
+        deviceDto.setDeviceName(device.deviceName);
+        deviceDto.setIsOnline(device.isOnline);
+        deviceDto.setIsActive(device.isActive);
 
         return deviceDto;
     }
@@ -52,10 +52,10 @@ class ModelMapper {
     static devicesTypeToDto(devicesType) {
         let devicesTypeDto = new DevicesTypeDto();
 
-        devicesTypeDto.setId(devicesType.getId());
-        devicesTypeDto.setDeviceName(devicesType.getDeviceName());
-        devicesTypeDto.setDeviceDescription(devicesType.getDeviceDescription());
-        devicesTypeDto.setIsActive(devicesType.getIsActive());
+        devicesTypeDto.setId(devicesType.id);
+        devicesTypeDto.setDeviceName(devicesType.deviceName());
+        devicesTypeDto.setDeviceDescription(devicesType.deviceDescription);
+        devicesTypeDto.setIsActive(devicesType.isActive);
 
         return devicesTypeDto;
     }
@@ -76,12 +76,12 @@ class ModelMapper {
     static logLocationToDto(logLocation) {
         let logLocationDto = new LogLocationDto();
 
-        logLocationDto.setId(logLocation.getId());
-        logLocationDto.setVehicleId(logLocation.getVehicleId());
-        logLocationDto.setDeviceId(logLocation.getDeviceId());
-        logLocationDto.setLatitude(logLocation.getLatitude());
-        logLocationDto.setLongitude(logLocation.getLongitude());
-        logLocationDto.setCreatedAt(logLocation.getCreatedAt());
+        logLocationDto.setId(logLocation.id);
+        logLocationDto.setVehicleId(logLocation.vehicleId);
+        logLocationDto.setDeviceId(logLocation.deviceId);
+        logLocationDto.setLatitude(logLocation.latitude);
+        logLocationDto.setLongitude(logLocation.longitude);
+        logLocationDto.setCreatedAt(logLocation.createdAt);
 
         return logLocationDto;
     }
@@ -101,11 +101,11 @@ class ModelMapper {
     static logTemperatureToDto(logTemperature) {
         let logTemperatureDto = new LogTemperatureDto();
 
-        logTemperatureDto.setId(logTemperature.getId());
-        logTemperatureDto.setDeviceId(logTemperature.getDeviceId());
-        logTemperatureDto.setVehicleId(logTemperature.getVehicleId());
-        logTemperatureDto.setReadData(logTemperature.getReadData());
-        logTemperatureDto.setCreatedAt(logTemperature.getCreatedAt());
+        logTemperatureDto.setId(logTemperature.id);
+        logTemperatureDto.setDeviceId(logTemperature.deviceId());
+        logTemperatureDto.setVehicleId(logTemperature.vehicleId);
+        logTemperatureDto.setReadData(logTemperature.readData);
+        logTemperatureDto.setCreatedAt(logTemperature.createdAt);
 
         return logTemperatureDto;
     }
@@ -124,10 +124,10 @@ class ModelMapper {
     static vehicleToDto(vehicle) {
         let vehicleDto = new VehicleDto();
 
-        vehicleDto.setId(vehicle.getId());
-        vehicleDto.setVehiclePlate(vehicle.getVehiclePlate());
-        vehicleDto.setCurrentStatus(vehicle.getCurrentStatus());
-        vehicleDto.setIsActive(vehicle.getIsActive());
+        vehicleDto.setId(vehicle.id);
+        vehicleDto.setVehiclePlate(vehicle.vehiclePlate());
+        vehicleDto.setCurrentStatus(vehicle.currentStatus);
+        vehicleDto.setIsActive(vehicle.isActive);
 
         return vehicleDto;
     }

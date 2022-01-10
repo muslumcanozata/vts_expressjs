@@ -1,35 +1,32 @@
-const { deviceDal } = require("../dataAccessLayers/deviceDal");
-const { ModelMapper } = require("../utils/ModelMapper");
+const deviceDal = require("../dataAccessLayers/deviceDal");
+const ModelMapper = require("../utils/ModelMapper");
 
-class DeviceService {
-    constructor() {}
-    static getAll() {
-        const deviceEntityList = deviceDal.getAll();
+const deviceService = {
+    async getAll() {
+        const deviceEntityList = await deviceDal.getAll();
         let deviceDtoList = [];
-        for (let i = 0; i < deviceEntityList.length; i++) {
-            const deviceDto = ModelMapper.deviceToDto(deviceEntityList[i]);
+        deviceEntityList.forEach(function(device) {
+            console.log(device)
+            const deviceDto = ModelMapper.deviceToDto(device);
+            console.log(deviceDto)
             deviceDtoList.push(deviceDto);
-        }
+        });
         return deviceDtoList;
+    },
 
-    }
-    static insert(devices) {
-        const bool = deviceDal.insert(devices);
-
-        return bool;
-    }
-    static update(deviceDto) {
+    async insert(deviceDto) {
         const device = ModelMapper.dtoToDevice(deviceDto)
+        return await deviceDal.insert(device);
+    },
 
-        const bool = deviceDal.update(device);
+    async update(deviceDto) {
+        const device = ModelMapper.dtoToDevice(deviceDto)
+        return await deviceDal.update(device);
+    },
 
-        return bool;
-    }
-    static delete(id) {
-        const bool = deviceDal.update(id);
-
-        return bool;
-    }
+    async delete(id) {
+        return await deviceDal.delete(id);
+    },
 }
 
-module.exports = DeviceService;
+module.exports = deviceService;
