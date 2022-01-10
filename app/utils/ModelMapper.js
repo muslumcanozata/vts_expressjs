@@ -28,11 +28,11 @@ class ModelMapper {
     static deviceToDto(device) {
         let deviceDto = new DeviceDto();
 
-        deviceDto.setId(device.id);
-        deviceDto.setDeviceTypeId(device.deviceTypeId);
-        deviceDto.setDeviceName(device.deviceName);
-        deviceDto.setIsOnline(device.isOnline);
-        deviceDto.setIsActive(device.isActive);
+        deviceDto.id = device.id;
+        deviceDto.deviceTypeId = device.deviceTypeId;
+        deviceDto.deviceName = device.deviceName;
+        deviceDto.isOnline = device.isOnline;
+        deviceDto.isActive = device.isActive;
 
         return deviceDto;
     }
