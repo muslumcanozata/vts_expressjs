@@ -6,9 +6,7 @@ const deviceService = {
         const deviceEntityList = await deviceDal.getAll();
         let deviceDtoList = [];
         deviceEntityList.forEach(function(device) {
-            console.log(device)
             const deviceDto = ModelMapper.deviceToDto(device);
-            console.log(deviceDto)
             deviceDtoList.push(deviceDto);
         });
         return deviceDtoList;
