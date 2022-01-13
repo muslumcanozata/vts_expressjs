@@ -43,3 +43,4 @@ CREATE TABLE IF NOT EXISTS vst.public.vehicles
 );
 
 INSERT INTO vst.public.vehicles(vehicle_plate, current_status, is_active) VALUES("GPS", 1, true);
+INSERT INTO vst.public.vehicles(vehicle_plate, current_status, is_active) VALUES("GPS", 1, true);
